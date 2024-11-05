@@ -1,1 +1,12 @@
-<p>field works!</p>
+<div>
+@for (cell of cells(); track $index;){
+  <app-cell [choice]=cell (onClick)="move($event)" [index]="$index"></app-cell>
+}
+</div>
+@if (winner() !== null && winner() !== ""){
+  <p>PLAYER {{winner()}} WON!</p>
+} @else if(winner() === ""){
+  <p>IT'S A DRAW!</p>
+} @else {
+  <p>Player {{nextPlayer()}}'s turn!</p>
+}
